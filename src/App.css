@@ -1,0 +1,36 @@
+.wrapper {
+  padding: 20px;
+}
+.container {
+  max-width: 450px;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+.title {
+  font-family: "Cinzel", serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 57px;
+  letter-spacing: 0.2rem;
+  margin-bottom: 20px;
+  animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+
+  @media screen and (max-width: 360px) {
+    font-size: 38px;
+  }
+}
+
+@keyframes tracking-in-contract {
+  0% {
+    letter-spacing: 1em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    letter-spacing: normal;
+    opacity: 1;
+  }
+}
