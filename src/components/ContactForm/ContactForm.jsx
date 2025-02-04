@@ -14,6 +14,7 @@ const ContactsSchema = Yup.object().shape({
     .max(50, "Too Long!")
     .required("Required"),
   number: Yup.string()
+    .matches(/^[0-9-]+$/, "Only numbers and `-` are allowed")
     .min(3, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
@@ -24,6 +25,7 @@ const numberId = nanoid();
 
 const ContactForm = () => {
   const dispatch = useDispatch();
+
   const handleSubmit = (values, actions) => {
     const newContact = { name: values.name, number: values.number };
     dispatch(addContact(newContact));
