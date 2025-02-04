@@ -23,7 +23,7 @@ function App() {
     dispatch(refreshUserThunk());
   }, [dispatch]);
   return isRefreshing ? null : (
-    <div className="wrapper">
+    <div className="h-screen w-full p-[20px]">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />

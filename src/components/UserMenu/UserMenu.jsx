@@ -7,11 +7,11 @@ const UserMenu = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className="flex gap-3">
-      <p>Welcome, {user.name}</p>
+    <div className="flex gap-10 items-center">
+      <p className="">Welcome, {user.name}</p>
       <button
         type="button"
-        className="btn btn-outline"
+        className="px-4 py-2 border rounded-md hover:bg-[#004aad] hover:text-[#fdfff3] cursor-pointer"
         onClick={() => dispatch(logoutThunk())}
       >
         {" "}

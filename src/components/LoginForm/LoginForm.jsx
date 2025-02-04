@@ -16,27 +16,27 @@ const LoginForm = () => {
     options.resetForm();
   };
   return (
-    <div className="hero bg-base-200 min-h-screen">
+    <div className="hero bg-[#fdfff3] min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold">Login now!</h1>
+          <h1 className="text-5xl font-bold font-[Cinzel_Serif]">Login now!</h1>
         </div>
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
           <Formik initialValues={initialValues} onSubmit={handleSubmit}>
             <div className="card-body">
               <Form className="fieldset">
-                <label className="fieldset-label">Email</label>
+                <label className="label">Email</label>
                 <Field
                   type="email"
                   name="email"
-                  className="input"
+                  className="border rounded-md h-[35px] pl-[10px]"
                   placeholder="Email"
                 />
-                <label className="fieldset-label">Password</label>
+                <label className="label">Password</label>
                 <Field
                   type="password"
                   name="password"
-                  className="input"
+                  className="border rounded-md h-[35px] pl-[10px]"
                   placeholder="Password"
                 />
                 <div>
@@ -47,7 +47,10 @@ const LoginForm = () => {
                     </Link>
                   </p>
                 </div>
-                <button className="btn btn-neutral mt-4" type="submit">
+                <button
+                  className="px-4 py-2 border rounded-md hover:bg-[#004aad] hover:text-[#fdfff3] cursor-pointer"
+                  type="submit"
+                >
                   Login
                 </button>
               </Form>

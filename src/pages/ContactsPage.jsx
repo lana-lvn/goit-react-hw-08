@@ -18,7 +18,6 @@ const ContactsPage = () => {
   return (
     <div>
       <div className="container">
-        <h1 className="title ">Phonebook</h1>
         <ContactForm />
         <SearchBox />
       </div>

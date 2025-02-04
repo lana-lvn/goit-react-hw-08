@@ -9,7 +9,7 @@ const AppBar = () => {
 
   return (
     <div>
-      <header className="flex justify-between text-lg">
+      <header className="flex justify-between items-center text-lg min-h-20 border-b border-inherit mb-[20px] px-[20px]">
         <Navigation />
         {isLoggedIn ? <UserMenu /> : <AuthNav />}
       </header>
