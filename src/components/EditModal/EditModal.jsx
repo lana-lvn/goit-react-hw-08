@@ -1,6 +1,6 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
-import s from "./EditModal.module.css";
+import s from "./editModal.module.css";
 
 const EditSchema = Yup.object().shape({
   name: Yup.string()
