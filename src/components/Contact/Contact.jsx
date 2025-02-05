@@ -1,11 +1,24 @@
 import { useDispatch } from "react-redux";
-import { FaUser, FaPhone } from "react-icons/fa6";
-import { deleteContact } from "../../redux/contacts/operations";
+
+import { FaUser } from "react-icons/fa6";
+import { FaPhone } from "react-icons/fa6";
+
+import { editContact } from "../../redux/contacts/operations";
 
 import s from "./contact.module.css";
+import EditModal from "../EditModal/EditModal";
+import DeleteModal from "../DeleteModal/DeleteModal";
 
-const Contact = ({ id, name, number, onEdit }) => {
+const Contact = ({ id, name, number }) => {
   const dispatch = useDispatch();
+
+  const initialValues = { name, number };
+
+  const handleSubmit = (values, actions) => {
+    dispatch(editContact({ id, values }));
+    actions.resetForm();
+    document.getElementById(`edit_modal_${id}`).close();
+  };
 
   return (
     <>
@@ -26,34 +39,26 @@ const Contact = ({ id, name, number, onEdit }) => {
         >
           Delete
         </button>
-        <button className={s.delete} onClick={onEdit}>
-          {" "}
+        <button
+          className={s.delete}
+          onClick={() =>
+            document.getElementById(`edit_modal_${id}`).showModal()
+          }
+        >
           Edit
         </button>
       </div>
 
       {/* DELETE MODAL */}
-      <dialog id="delete_modal" className="modal">
-        <div className="modal-box">
-          <form method="dialog">
-            <button className="px-[7px] py-[3px] hover:cursor-pointer border-[#004aad] rounded-[50%] absolute right-2 top-2">
-              ✕
-            </button>
-          </form>
-          <h3 className="font-bold text-lg text-red-500">
-            Deleted contact cannot be restored!
-          </h3>
-          <p className="py-4">Still want to delete?</p>
-          <button
-            className={s.delete}
-            onClick={() => dispatch(deleteContact(id))}
-          >
-            Delete
-          </button>
-        </div>
-      </dialog>
+      <DeleteModal id={id} />
+
+      {/* EDIT MODAL */}
+      <EditModal
+        id={id}
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+      />
     </>
   );
 };
-
 export default Contact;
