@@ -40,8 +40,6 @@ export const deleteContact = createAsyncThunk(
 export const editContact = createAsyncThunk(
   "contacts/editContact",
   async (body, thunkAPI) => {
-    console.log("body:", body);
-
     const savedToken = thunkAPI.getState().auth.token;
     if (!savedToken) {
       return thunkAPI.rejectWithValue("token does not exist");

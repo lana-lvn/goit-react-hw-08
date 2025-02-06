@@ -13,7 +13,6 @@ const RegistrationForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleSubmit = (values, options) => {
-    console.log(values);
     dispatch(registerThunk(values))
       .unwrap()
       .then(() => navigate("/"));
