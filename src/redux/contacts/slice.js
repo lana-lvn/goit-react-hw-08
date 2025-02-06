@@ -6,6 +6,7 @@ import {
   editContact,
 } from "./operations";
 import toast from "react-hot-toast";
+import { logoutThunk } from "../auth/operations";
 
 const initialState = {
   items: [],
@@ -41,6 +42,9 @@ const contactsSlice = createSlice({
         const item = state.items.find((item) => item.id === action.payload.id);
         item.name = action.payload.name;
         item.number = action.payload.number;
+      })
+      .addCase(logoutThunk.fulfilled, () => {
+        return initialState;
       })
       .addMatcher(
         isAnyOf(
